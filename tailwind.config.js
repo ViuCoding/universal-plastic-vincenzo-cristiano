@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {},
     colors: {
-      headerText: "#14143f",
-      lightText: "#595977",
-      inputBg: "#ECF9FD",
-      inputText: "#246B83",
-      inputDivider: "#C4ECFA",
+      "header-text": "#14143f",
+      "light-text": "#595977",
+      "input-bg": "#ECF9FD",
+      "input-text": "#246B83",
+      "input-divider": "#C4ECFA",
       slider: "#42C3EE",
     },
   },
