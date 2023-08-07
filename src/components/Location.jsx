@@ -7,8 +7,8 @@ const latRegex = /^[-+]?(?=.{1,11}$)([1-8]?\d(?:\.\d{0,7})?|90(?:\.0{0,7})?)$/;
 const lonRegex = /^[-+]?(?=.{1,11}$)(?:180(?:\.0{0,7})?|(?:(?:1[0-7]\d)|(?:[1-9]?\d))(?:\.\d{0,7})?)$/;
 
 export default function Location() {
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   const success = pos => {
     const location = pos.coords;
