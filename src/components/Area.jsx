@@ -15,7 +15,7 @@ export default function Area() {
       </div>
 
       <div>
-        <input className='w-full' type='range' name='km' id='km' min={0} max={20} value={range} onChange={handleRange} />
+        <input className='w-full h-1 ' type='range' name='km' id='km' min={0} max={20} value={range} onChange={handleRange} />
         {range}
 
         <div className='h-20' id='map'></div>
