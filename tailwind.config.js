@@ -10,6 +10,8 @@ export default {
       "input-text": "#246B83",
       "input-divider": "#C4ECFA",
       slider: "#42C3EE",
+      "error-text": "crimson",
+      "error-bg": "pink",
     },
   },
   plugins: [],
