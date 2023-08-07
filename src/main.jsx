@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 import "modern-normalize/modern-normalize.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
