@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MapContainer, TileLayer, Marker, Circle } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Circle, useMap } from "react-leaflet";
+import propTypes from "prop-types";
 import L from "leaflet";
 
 import mapMarker from "../assets/icons/mapIcon.png";
@@ -9,8 +10,21 @@ const customMarker = L.icon({
   iconSize: [24, 24],
 });
 
-export default function Area() {
+Area.propTypes = {
+  latitude: propTypes.number,
+  longitude: propTypes.number,
+};
+
+export default function Area({ latitude, longitude }) {
+  console.log(latitude);
+  console.log(longitude);
   const [range, setRange] = useState(1000);
+
+  function ChangeMapView({ center }) {
+    const map = useMap();
+    map.setView(center, map.getZoom());
+    return null;
+  }
 
   const handleRange = e => {
     setRange(e.target.value);
@@ -28,17 +42,18 @@ export default function Area() {
         <span className='edge-right'></span>
       </div>
 
-      <MapContainer className='leaflet-container' center={[38.3643697, 15.8552571]} zoom={13} scrollWheelZoom={false} zoomControl={true}>
+      <MapContainer className='leaflet-container' center={[latitude, longitude]} zoom={13} scrollWheelZoom={false} zoomControl={true}>
         <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-        <Marker position={[38.3643697, 15.8552571]} icon={customMarker}></Marker>
+        <Marker position={[latitude, longitude]} icon={customMarker}></Marker>
         <Circle
-          center={[38.3643697, 15.8552571]}
+          center={[latitude, longitude]}
           pathOptions={{
             color: "#42c3ee",
             weight: 1,
           }}
           radius={range}
         />
+        <ChangeMapView center={[latitude, longitude]} />
       </MapContainer>
     </section>
   );
