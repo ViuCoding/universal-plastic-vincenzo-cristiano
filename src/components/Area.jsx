@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Circle, useMap } from "react-leaflet";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import L from "leaflet";
-
 import mapMarker from "../assets/icons/mapIcon.png";
 
 const customMarker = L.icon({
@@ -11,23 +9,18 @@ const customMarker = L.icon({
 });
 
 Area.propTypes = {
-  latitude: propTypes.number,
-  longitude: propTypes.number,
+  latitude: PropTypes.number,
+  longitude: PropTypes.number,
+  range: PropTypes.number,
+  handleRange: PropTypes.func,
+  center: PropTypes.array,
 };
 
-export default function Area({ latitude, longitude }) {
-  console.log(latitude);
-  console.log(longitude);
-  const [range, setRange] = useState(1000);
-
-  function ChangeMapView({ center }) {
+export default function Area({ range, handleRange, latitude, longitude }) {
+  const ChangeMapView = ({ center }) => {
     const map = useMap();
     map.setView(center, map.getZoom());
     return null;
-  }
-
-  const handleRange = e => {
-    setRange(e.target.value);
   };
 
   return (

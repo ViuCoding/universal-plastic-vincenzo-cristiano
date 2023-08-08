@@ -1,10 +1,10 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 Location.propTypes = {
-  handleLatitude: propTypes.func,
-  handleLongitude: propTypes.func,
-  latitude: propTypes.number,
-  longitude: propTypes.number,
+  handleLatitude: PropTypes.func,
+  handleLongitude: PropTypes.func,
+  latitude: PropTypes.number,
+  longitude: PropTypes.number,
 };
 
 export default function Location({ handleLatitude, handleLongitude, latitude, longitude }) {

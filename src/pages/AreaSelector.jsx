@@ -6,28 +6,33 @@ import toast, { Toaster } from "react-hot-toast";
 
 const notify = () => toast.error("Location value is incorrect...");
 
-const latRegex = /^[-+]?(?=.{0,11}$)([1-8]?\d{0,2}(?:\.\d{0,7})?|90(?:\.0{0,7})?)$/;
+const latRegex = /^[-+]?(?=.{0,11}$)([1-8]?\d(?:\.\d{0,7})?|90(?:\.0{0,7})?|\.\d{1,7})$/;
 const lonRegex = /^[-+]?(?=.{0,11}$)(?:180(?:\.0{0,7})?|(?:(?:1[0-7]\d{0,1})|(?:[1-9]?\d{0,2}))(?:\.\d{0,7})?)$/;
 
 export default function AreaSelector() {
-  const [latitude, setLatitude] = useState(38.3643844);
-  const [longitude, setLongitude] = useState(15.855258);
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+  const [range, setRange] = useState(1000);
 
   const handleLatitude = e => {
-    const latValue = parseFloat(e.target.value);
+    const latValue = e.target.value;
     if (latRegex.test(latValue)) {
-      setLatitude(latValue);
+      setLatitude(parseFloat(latValue));
     } else {
       notify();
     }
   };
   const handleLongitude = e => {
-    const lonValue = parseFloat(e.target.value);
+    const lonValue = e.target.value;
     if (lonRegex.test(lonValue)) {
-      setLongitude(lonValue);
+      setLongitude(parseFloat(lonValue));
     } else {
       notify();
     }
+  };
+
+  const handleRange = e => {
+    setRange(Number(e.target.value));
   };
 
   const success = pos => {
@@ -60,7 +65,7 @@ export default function AreaSelector() {
     <div className='container mx-auto px-2'>
       <h1 className='text-3xl font-bold text-center text-header-text py-2 '>Area selector</h1>
       <Location handleLatitude={handleLatitude} handleLongitude={handleLongitude} latitude={latitude} longitude={longitude} />
-      <Area latitude={latitude} longitude={longitude} />
+      <Area range={range} handleRange={handleRange} latitude={latitude} longitude={longitude} />
       <Toaster />
     </div>
   );
