@@ -1,6 +1,7 @@
+import locations from "../locations.json";
 import { useState } from "react";
 import City from "../components/City";
-import locations from "../locations.json";
+import WeatherCard from "../components/WeatherCard";
 
 export default function WeatherCity() {
   const [city, setCity] = useState(locations[0]);
@@ -13,7 +14,8 @@ export default function WeatherCity() {
   return (
     <div className='container mx-auto px-2'>
       <h1 className='text-3xl font-bold text-center text-header-text py-2 '>Weather City</h1>
-      <City locations={locations} handleCity={handleCity} />
+      <City locations={locations} handleCity={handleCity}  />
+      <WeatherCard />
     </div>
   );
 }
