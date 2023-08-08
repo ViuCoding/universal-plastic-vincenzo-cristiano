@@ -68,3 +68,9 @@ input[type="number"] {
   background-color: #42c3ee;
   z-index: -2;
 }
+
+.leaflet-container {
+  width: 100%;
+  height: 180px;
+}
+
