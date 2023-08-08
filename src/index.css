@@ -72,5 +72,6 @@ input[type="number"] {
 .leaflet-container {
   width: 100%;
   height: 180px;
+  border-radius: 8px;
 }
 

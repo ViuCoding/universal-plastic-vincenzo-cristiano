@@ -1,58 +1,13 @@
-import { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import propTypes from "prop-types";
 
-const notify = () => toast.error("Location value is incorrect...");
+Location.propTypes = {
+  handleLatitude: propTypes.func,
+  handleLongitude: propTypes.func,
+  latitude: propTypes.string,
+  longitude: propTypes.string,
+};
 
-const latRegex = /^[-+]?(?=.{0,11}$)([1-8]?\d{0,2}(?:\.\d{0,7})?|90(?:\.0{0,7})?)$/;
-const lonRegex = /^[-+]?(?=.{0,11}$)(?:180(?:\.0{0,7})?|(?:(?:1[0-7]\d{0,1})|(?:[1-9]?\d{0,2}))(?:\.\d{0,7})?)$/;
-
-export default function Location() {
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
-
-  const success = pos => {
-    const location = pos.coords;
-    setLatitude(location.latitude.toFixed(7));
-    setLongitude(location.longitude.toFixed(7));
-  };
-
-  const errors = err => {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  };
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.permissions.query({ name: "geolocation" }).then(function (result) {
-        if (result.state === "granted") {
-          navigator.geolocation.getCurrentPosition(success, errors);
-        } else if (result.state === "prompt") {
-          navigator.geolocation.getCurrentPosition(success, errors);
-        } else if (result.state === "denied") {
-          alert("Please enable the geolocation services!");
-        }
-      });
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-  }, []);
-
-  const handleLatitude = e => {
-    const latValue = e.target.value;
-    if (latRegex.test(latValue)) {
-      setLatitude(latValue);
-    } else {
-      notify();
-    }
-  };
-  const handleLongitude = e => {
-    const lonValue = e.target.value;
-    if (lonRegex.test(lonValue)) {
-      setLongitude(lonValue);
-    } else {
-      notify();
-    }
-  };
-
+export default function Location({ handleLatitude, handleLongitude, latitude, longitude }) {
   return (
     <section>
       <h2 className='text-2xl font-bold text-header-text py-2'>Location</h2>
@@ -71,8 +26,6 @@ export default function Location() {
           <input className='bg-input-bg text-input-text font-medium p-3 border-l border-input-divider focus:outline-none' type='number' name='lon' id='lon' value={longitude} onChange={handleLongitude} />
         </div>
       </div>
-
-      <Toaster />
     </section>
   );
 }
