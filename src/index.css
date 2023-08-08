@@ -13,3 +13,58 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.slider-container {
+  position: relative;
+}
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: #42c3ee;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ecf9fd;
+  border: 3px solid #42c3ee;
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ecf9fd;
+  border: 3px solid #42c3ee;
+  cursor: pointer;
+}
+
+.edge-left {
+  display: inline-block;
+  position: absolute;
+  bottom: 1px;
+  border-radius: 50%;
+  left: -1px;
+  height: 6px;
+  width: 6px;
+  background-color: #42c3ee;
+  z-index: -2;
+}
+.edge-right {
+  display: inline-block;
+  position: absolute;
+  bottom: 1px;
+  border-radius: 50%;
+  right: -1px;
+  height: 6px;
+  width: 6px;
+  background-color: #42c3ee;
+  z-index: -2;
+}

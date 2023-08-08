@@ -3,8 +3,8 @@ import toast, { Toaster } from "react-hot-toast";
 
 const notify = () => toast.error("Location value is incorrect...");
 
-const latRegex = /^[-+]?(?=.{1,11}$)([1-8]?\d(?:\.\d{0,7})?|90(?:\.0{0,7})?)$/;
-const lonRegex = /^[-+]?(?=.{1,11}$)(?:180(?:\.0{0,7})?|(?:(?:1[0-7]\d)|(?:[1-9]?\d))(?:\.\d{0,7})?)$/;
+const latRegex = /^[-+]?(?=.{0,11}$)([1-8]?\d{0,2}(?:\.\d{0,7})?|90(?:\.0{0,7})?)$/;
+const lonRegex = /^[-+]?(?=.{0,11}$)(?:180(?:\.0{0,7})?|(?:(?:1[0-7]\d{0,1})|(?:[1-9]?\d{0,2}))(?:\.\d{0,7})?)$/;
 
 export default function Location() {
   const [latitude, setLatitude] = useState("");
@@ -12,8 +12,8 @@ export default function Location() {
 
   const success = pos => {
     const location = pos.coords;
-    setLatitude(location.latitude);
-    setLongitude(location.longitude);
+    setLatitude(location.latitude.toFixed(7));
+    setLongitude(location.longitude.toFixed(7));
   };
 
   const errors = err => {

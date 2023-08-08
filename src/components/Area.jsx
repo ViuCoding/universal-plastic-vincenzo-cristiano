@@ -14,11 +14,10 @@ export default function Area() {
         <p className='font-normal text-light-text pr-2'>max 20 km</p>
       </div>
 
-      <div>
-        <input className='w-full h-1 ' type='range' name='km' id='km' min={0} max={20} value={range} onChange={handleRange} />
-        {range}
-
-        <div className='h-20' id='map'></div>
+      <div className='slider-container'>
+        <span className='edge-left'></span>
+        <input className='w-full slider' type='range' name='km' id='km' min={1} max={20} value={range} onChange={handleRange} />
+        <span className='edge-right'></span>
       </div>
     </section>
   );
