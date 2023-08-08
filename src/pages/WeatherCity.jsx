@@ -4,6 +4,7 @@ import City from "../components/City";
 import WeatherCard from "../components/WeatherCard";
 import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { Link } from "react-router-dom";
 
 const API_KEY = "37f2111fdeb0f75bcb28fbd30c3c518c";
 
@@ -34,6 +35,8 @@ export default function WeatherCity() {
 
   return (
     <div className='container mx-auto px-2'>
+      <Link to='/'>Area Selector</Link>
+      <Link to='/weather'>Weather</Link>
       <h1 className='text-3xl font-bold text-center text-header-text py-2 '>Weather City</h1>
       <City locations={locations} handleCity={handleCity} />
       {isLoading && <LoadingSpinner />}

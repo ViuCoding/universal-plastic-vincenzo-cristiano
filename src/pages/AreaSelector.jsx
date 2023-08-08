@@ -3,6 +3,7 @@ import Area from "../components/Area";
 import Location from "../components/Location";
 
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const notify = () => toast.error("Location value is incorrect...");
 
@@ -63,6 +64,8 @@ export default function AreaSelector() {
 
   return (
     <div className='container mx-auto px-2'>
+      <Link to='/'>Area Selector</Link>
+      <Link to='/weather'>Weather</Link>
       <h1 className='text-3xl font-bold text-center text-header-text py-2 '>Area selector</h1>
       <Location handleLatitude={handleLatitude} handleLongitude={handleLongitude} latitude={latitude} longitude={longitude} />
       <Area range={range} handleRange={handleRange} latitude={latitude} longitude={longitude} />
