@@ -18,3 +18,10 @@ input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
+
+/* Used to make the Navbar stick to the bottom of the page */
+#App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

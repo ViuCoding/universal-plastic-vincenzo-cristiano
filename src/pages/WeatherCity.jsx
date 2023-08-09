@@ -1,8 +1,7 @@
 import locations from "../locations.json";
 import { useEffect, useState } from "react";
-import { City, WeatherCard, LoadingSpinner } from "../components/index";
+import { City, WeatherCard, LoadingSpinner, Navbar } from "../components/index";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const API_KEY = "37f2111fdeb0f75bcb28fbd30c3c518c";
 
@@ -36,14 +35,13 @@ export default function WeatherCity() {
   }, [city]);
 
   return (
-    <div className='container mx-auto px-2'>
-      <Link to='/'>Area Selector</Link>
-      <Link to='/weather'>Weather</Link>
+    <div className='container mx-auto px-2' id='App'>
       <h1 className='text-xl font-semibold text-center text-header-text py-2 '>Weather City</h1>
       <City locations={locations} handleCity={handleCity} />
       {isLoading && <LoadingSpinner />}
       {!isLoading && data && <WeatherCard weatherData={data} />}
       {error && <h2 className='text-3xl font-bold text-center text-error-text py-2 '>{error}</h2>}
+      <Navbar />
     </div>
   );
 }

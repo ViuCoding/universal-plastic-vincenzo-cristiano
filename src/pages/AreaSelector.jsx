@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Area, Location } from "../components/index";
-import { Link } from "react-router-dom";
+import { Area, Location, Navbar } from "../components/index";
 
 const latRegex = /^(-?((90(\.0{1,7})?)|(\d{1,2}(\.\d{1,7})?)))?$/;
 const lonRegex = /^(?:-?180(?:\.0{1,7})?|(?:-?(?:1?[0-7]?[0-9]|180))(?:\.\d{1,7})?|)$/;
@@ -40,7 +39,6 @@ export default function AreaSelector() {
     setRange(Number(e.target.value));
   };
 
-
   // Geolocation services permissions
   const success = pos => {
     const location = pos.coords;
@@ -63,12 +61,11 @@ export default function AreaSelector() {
   }, []);
 
   return (
-    <div className='container mx-auto px-2'>
-      <Link to='/'>Area Selector</Link>
-      <Link to='/weather'>Weather</Link>
+    <div className='container mx-auto px-2' id='App'>
       <h1 className='text-xl font-semibold text-center text-header-text py-2 '>Area selector</h1>
       <Location handleLatitude={handleLatitude} handleLongitude={handleLongitude} latitude={latitude} longitude={longitude} isValid={isValid} />
       <Area range={range} handleRange={handleRange} latitude={latitude} longitude={longitude} />
+      <Navbar />
     </div>
   );
 }
