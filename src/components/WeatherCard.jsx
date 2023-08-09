@@ -8,7 +8,7 @@ WeatherCard.propTypes = {
 };
 
 export default function WeatherCard({ weatherData }) {
-  const [umidity, setUmidity] = useState("");
+  const [humidity, setHumidity] = useState("");
 
   // format Time for sunset and sunrise hours
   const sunset = new Date(weatherData.sys.sunset * 1000);
@@ -19,21 +19,19 @@ export default function WeatherCard({ weatherData }) {
   const riseMinutes = sunrise.getMinutes().toString().padStart(2, "0");
 
   useEffect(() => {
-    if (weatherData) {
-      if (weatherData.main.humidity > 0 && weatherData.main.humidity <= 15) {
-        setUmidity("1/6");
-      } else if (weatherData.main.humidity > 15 && weatherData.main.humidity <= 40) {
-        setUmidity("2/6");
-      } else if (weatherData.main.humidity > 40 && weatherData.main.humidity <= 55) {
-        setUmidity("3/6");
-      } else if (weatherData.main.humidity > 55 && weatherData.main.humidity <= 70) {
-        setUmidity("4/6");
-      } else if (weatherData.main.humidity > 70 && weatherData.main.humidity <= 90) {
-        setUmidity("5/6");
-      } else if (weatherData.main.humidity > 80) {
-        setUmidity("6/6");
-      } else {
-        setUmidity("");
+    if (weatherData.main.humidity) {
+      if (weatherData.main.humidity > 0 && weatherData.main.humidity <= 16) {
+        setHumidity("w-1/6");
+      } else if (weatherData.main.humidity > 16 && weatherData.main.humidity <= 33) {
+        setHumidity("w-2/6");
+      } else if (weatherData.main.humidity > 33 && weatherData.main.humidity <= 50) {
+        setHumidity("w-3/6");
+      } else if (weatherData.main.humidity > 50 && weatherData.main.humidity <= 66) {
+        setHumidity("w-4/6");
+      } else if (weatherData.main.humidity > 66 && weatherData.main.humidity <= 83) {
+        setHumidity("w-5/6");
+      } else if (weatherData.main.humidity > 83 && weatherData.main.humidity <= 100) {
+        setHumidity("w-6/6");
       }
     }
   }, [weatherData]);
@@ -92,8 +90,9 @@ export default function WeatherCard({ weatherData }) {
       <div className='flex justify-end mb-2'>
         <p className='text-light-text'>{weatherData.main.humidity}% umidity</p>
       </div>
+
       <div className='w-full bg-input-divider h-1 rounded-lg'>
-        <div className={`w-${umidity} bg-slider h-1 rounded-lg`}></div>
+        <div className={`${humidity} bg-slider h-1 rounded-lg`}></div>
       </div>
     </section>
   );
