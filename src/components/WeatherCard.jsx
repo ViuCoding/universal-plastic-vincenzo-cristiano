@@ -10,12 +10,12 @@ WeatherCard.propTypes = {
 export default function WeatherCard({ weatherData }) {
   // Fetched data destructuring
   const {
+    coord: { lon, lat },
     sys: { sunrise, sunset },
     main: { humidity, temp, feels_like },
     weather,
     name,
   } = weatherData;
-
   // Get Weather Icon according to fetched data
   const weatherIcon = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
@@ -76,8 +76,10 @@ export default function WeatherCard({ weatherData }) {
         <div>
           <p className='text-light-text text-sm uppercase mb-1'>Location</p>
           <p className='text-header-text flex items-center gap-1'>
-            <img src={MapPin} alt='' />
-            {name}
+            <img src={MapPin} alt='Pin icon' />
+            <a href={`https://www.google.com/maps/search/?api=1&query=${lat}%2C${lon}`} target='_blank' rel='noreferrer'>
+              {name}
+            </a>
           </p>
         </div>
       </div>
