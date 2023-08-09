@@ -4,3 +4,10 @@ nav {
   text-align: center;
   border-top: 1px solid #c4ecfa;
 }
+
+nav a.active::after {
+  content: ".";
+  font-size: 2rem;
+  border-radius: 50%;
+  color: #42c3eeed;
+}
