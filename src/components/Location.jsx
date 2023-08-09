@@ -12,20 +12,20 @@ Location.propTypes = {
 export default function Location({ handleLatitude, handleLongitude, latitude, longitude, isValid }) {
   return (
     <section>
-      <h2 className='text-2xl font-bold text-header-text py-2'>Location</h2>
+      <h2 className='text-base font-semibold text-header-text py-2'>Location</h2>
 
       <div className='grid grid-cols-2 mb-2'>
-        <label className='uppercase text-light-text font-semibold' htmlFor='lat'>
+        <label className='uppercase text-sm text-light-text font-semibold' htmlFor='lat'>
           Latitude
         </label>
-        <label className='uppercase text-light-text font-semibold' htmlFor='lon'>
+        <label className='uppercase text-sm text-light-text font-semibold' htmlFor='lon'>
           Longitude
         </label>
       </div>
       <div className='bg-input-bg py-2 rounded-lg'>
         <div className='grid grid-cols-2 bg-slider'>
-          <input className='bg-input-bg text-input-text font-medium p-3 focus:outline-none' type='number' name='lat' id='lat' value={latitude} onChange={handleLatitude} />
-          <input className='bg-input-bg text-input-text font-medium p-3 border-l border-input-divider focus:outline-none' type='number' name='lon' id='lon' value={longitude} onChange={handleLongitude} />
+          <input className='bg-input-bg text-base text-input-text p-3 focus:outline-none' type='number' name='lat' id='lat' value={latitude} onChange={handleLatitude} />
+          <input className='bg-input-bg text-base text-input-text p-3 border-l border-input-divider focus:outline-none' type='number' name='lon' id='lon' value={longitude} onChange={handleLongitude} />
         </div>
       </div>
       {!isValid && (

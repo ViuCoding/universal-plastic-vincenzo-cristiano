@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import PlaceHolder from "../assets/icons/mapIcon.png";
 import MapPin from "../assets/icons/mapPin.png";
 import { useEffect, useState } from "react";
 import WeatherInfoBlock from "./WeatherInfoBlock";
@@ -16,6 +15,9 @@ export default function WeatherCard({ weatherData }) {
     weather,
     name,
   } = weatherData;
+
+  // Get Weather Icon according to fetched data
+  const weatherIcon = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
   // Sunrise & Sunset formatting
   const formatTime = timestamp => {
@@ -46,10 +48,8 @@ export default function WeatherCard({ weatherData }) {
 
   return (
     <section className='p-4 border-2 rounded-lg border-slider'>
-      <div className='flex items-center'>
-        <div>
-          <img src={PlaceHolder} alt='' className='w-8 h-8 p-1 rounded-full border-[crimson] border' />
-        </div>
+      <div className='flex items-center flex-wrap'>
+          <img src={weatherIcon} alt='' className='w-8 h-8 rounded-full border-icon-border border-2' />
         <div className='ml-2'>
           <WeatherInfoBlock label='Weather' value={weather[0].main} />
         </div>
@@ -60,7 +60,7 @@ export default function WeatherCard({ weatherData }) {
 
       <div className='border border-input-divider my-4'></div>
 
-      <div className='flex items-center gap-8 mb-4'>
+      <div className='flex items-center gap-8 mb-4 flex-wrap'>
         <div>
           <WeatherInfoBlock label='Sunrise' value={sunriseHoursMinutes} />
         </div>
@@ -68,15 +68,15 @@ export default function WeatherCard({ weatherData }) {
           <WeatherInfoBlock label='Sunset' value={sunsetHoursMinutes} />
         </div>
         <div>
-          <p className='text-light-text uppercase mb-1'>Location</p>
-          <p className='font-semibold text-header-text flex items-center gap-1'>
+          <p className='text-light-text text-sm uppercase mb-1'>Location</p>
+          <p className='text-header-text flex items-center gap-1'>
             <img src={MapPin} alt='' />
             {name}
           </p>
         </div>
       </div>
 
-      <div className='flex items-center gap-8 mb-2'>
+      <div className='flex items-center gap-8 mb-2 flex-wrap'>
         <div>
           <WeatherInfoBlock label='Temperature' value={`${temp} °C`} />
         </div>
@@ -86,7 +86,7 @@ export default function WeatherCard({ weatherData }) {
       </div>
 
       <div className='flex justify-end mb-2'>
-        <p className='text-light-text'>{humidity}% umidity</p>
+        <p className='text-light-text text-sm'>{humidity}% umidity</p>
       </div>
 
       <div className='w-full bg-input-divider h-2 rounded-lg'>

@@ -66,7 +66,7 @@ export default function AreaSelector() {
     <div className='container mx-auto px-2'>
       <Link to='/'>Area Selector</Link>
       <Link to='/weather'>Weather</Link>
-      <h1 className='text-3xl font-bold text-center text-header-text py-2 '>Area selector</h1>
+      <h1 className='text-xl font-semibold text-center text-header-text py-2 '>Area selector</h1>
       <Location handleLatitude={handleLatitude} handleLongitude={handleLongitude} latitude={latitude} longitude={longitude} isValid={isValid} />
       <Area range={range} handleRange={handleRange} latitude={latitude} longitude={longitude} />
     </div>

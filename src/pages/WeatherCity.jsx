@@ -39,7 +39,7 @@ export default function WeatherCity() {
     <div className='container mx-auto px-2'>
       <Link to='/'>Area Selector</Link>
       <Link to='/weather'>Weather</Link>
-      <h1 className='text-3xl font-bold text-center text-header-text py-2 '>Weather City</h1>
+      <h1 className='text-xl font-semibold text-center text-header-text py-2 '>Weather City</h1>
       <City locations={locations} handleCity={handleCity} />
       {isLoading && <LoadingSpinner />}
       {!isLoading && data && <WeatherCard weatherData={data} />}

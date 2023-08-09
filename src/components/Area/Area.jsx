@@ -27,8 +27,8 @@ export default function Area({ range, handleRange, latitude, longitude }) {
   return (
     <section>
       <div className='flex items-center justify-between'>
-        <h2 className='text-2xl font-bold text-header-text py-2'>Area</h2>
-        <p className='font-normal text-light-text pr-2'>max 20 km</p>
+        <h2 className='text-base font-bold text-header-text py-2'>Area</h2>
+        <p className='font-normal text-sm text-light-text pr-2'>max 20 km</p>
       </div>
       <div className='slider-container mb-4'>
         <span className='edge-left'></span>

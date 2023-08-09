@@ -12,6 +12,12 @@ export default {
       slider: "#42C3EE",
       "error-text": "#dc143c",
       "error-bg": "#FFC0CB",
+      "icon-border": "#F0F0F2",
+    },
+    fontSize: {
+      sm: "10.88px",
+      base: "17px",
+      xl: "21.25px",
     },
   },
   plugins: [],

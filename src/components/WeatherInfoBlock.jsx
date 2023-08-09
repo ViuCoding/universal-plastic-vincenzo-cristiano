@@ -7,8 +7,8 @@ WeatherInfoBlock.propTypes = {
 export default function WeatherInfoBlock({ label, value }) {
   return (
     <>
-      <p className='text-light-text uppercase mb-1'>{label}</p>
-      {!value.includes(" °C") ? <p className='font-semibold lowercase text-header-text'>{value}</p> : <p className='font-semibold text-header-text'>{value}</p>}
+      <p className='text-light-text text-sm uppercase mb-1'>{label}</p>
+      {!value.includes(" °C") ? <p className='lowercase text-base text-header-text'>{value}</p> : <p className='text-base text-header-text'>{value}</p>}
     </>
   );
 }
