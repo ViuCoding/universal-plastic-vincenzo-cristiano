@@ -30,26 +30,32 @@ export default function WeatherCard({ weatherData }) {
   const sunriseHoursMinutes = formatTime(sunrise);
   const sunsetHoursMinutes = formatTime(sunset);
 
+  // Set class for humidity slider
   const [humidityClassName, setHumidityClassName] = useState("");
-
-  // Updating humidity slider according to the fetched humidity data
-  const calculateHumidityClassName = humidity => {
-    const ranges = [16, 33, 50, 66, 83, 100];
-    const rangeIndex = ranges.findIndex(range => humidity <= range);
-    return `w-${rangeIndex + 1}/6`;
-  };
-
   useEffect(() => {
     if (humidity) {
-      const newHumidityClass = calculateHumidityClassName(humidity);
-      setHumidityClassName(newHumidityClass);
+      if (humidity) {
+        if (humidity > 0 && humidity <= 16) {
+          setHumidityClassName("w-1/6");
+        } else if (humidity > 16 && humidity <= 33) {
+          setHumidityClassName("w-2/6");
+        } else if (humidity > 33 && humidity <= 50) {
+          setHumidityClassName("w-3/6");
+        } else if (humidity > 50 && humidity <= 66) {
+          setHumidityClassName("w-4/6");
+        } else if (humidity > 66 && humidity <= 83) {
+          setHumidityClassName("w-5/6");
+        } else if (humidity > 83 && humidity <= 100) {
+          setHumidityClassName("w-6/6");
+        }
+      }
     }
   }, [humidity]);
 
   return (
     <section className='p-4 border-2 rounded-lg border-slider'>
       <div className='flex items-center flex-wrap'>
-          <img src={weatherIcon} alt='' className='w-8 h-8 rounded-full border-icon-border border-2' />
+        <img src={weatherIcon} alt='' className='w-8 h-8 rounded-full border-icon-border border-2' />
         <div className='ml-2'>
           <WeatherInfoBlock label='Weather' value={weather[0].main} />
         </div>
