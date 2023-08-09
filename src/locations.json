@@ -1,164 +1,164 @@
 [
   {
     "id": 1724654701,
-    "city": "La Gabarra",
+    "city": "Madrid",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [2.0825, 41.3552]
+      "coordinates": [40.4168, -3.7038]
     }
   },
   {
     "id": 1724693482,
-    "city": "Villaba",
+    "city": "Barcelona",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-1.6131, 42.8298]
+      "coordinates": [41.390205, 2.154007]
     }
   },
   {
     "id": 1724296865,
-    "city": "Premiá de Mar",
+    "city": "Amsterdam",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [2.362, 41.492]
+      "coordinates": [52.377956, 4.89707]
     }
   },
   {
     "id": 1724837321,
-    "city": "Canyet",
+    "city": "Rome",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [2.2381, 41.4665]
+      "coordinates": [41.902782, 12.496366]
     }
   },
   {
     "id": 1724017694,
-    "city": "Portugalete",
+    "city": "Paris",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-3.0194, 43.3194]
+      "coordinates": [48.8566, 2.3522]
     }
   },
   {
     "id": 1724041827,
-    "city": "El Arrabal",
+    "city": "Berlin",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [2.0939, 41.3797]
+      "coordinates": [52.52, 13.405]
     }
   },
   {
     "id": 1724636864,
-    "city": "Echavacoiz",
+    "city": "Copenhagen",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-1.6772, 42.8002]
+      "coordinates": [55.676098, 12.568337]
     }
   },
   {
     "id": 1724001899,
-    "city": "Mislata",
+    "city": "Budapest",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-0.4156, 39.475]
+      "coordinates": [47.497913, 19.040236]
     }
   },
   {
     "id": 1724242237,
-    "city": "Burlada",
+    "city": "Prague",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-1.6155, 42.8258]
+      "coordinates": [50.0755, 14.4378]
     }
   },
   {
     "id": 1724751271,
-    "city": "Chirivella",
+    "city": "Vienna",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-0.4167, 39.4667]
+      "coordinates": [48.2082, 16.3738]
     }
   },
   {
     "id": 1724424514,
-    "city": "Torregorda",
+    "city": "London",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-6.25, 36.4667]
+      "coordinates": [51.5072, -0.118092]
     }
   },
   {
     "id": 1724027090,
-    "city": "Montjuich",
+    "city": "Istanbul",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [2.1689, 41.3602]
+      "coordinates": [41.0082, 28.9784]
     }
   },
   {
     "id": 1724090334,
-    "city": "Badalona",
+    "city": "Milan",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [2.2333, 41.4333]
+      "coordinates": [45.4642, 9.19]
     }
   },
   {
     "id": 1724352928,
-    "city": "Esplugas de Llobregat",
+    "city": "Kiev",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [41.3773, 2.091]
+      "coordinates": [50.4501, 30.523333]
     }
   },
   {
     "id": 1724755498,
-    "city": "La Vallensana",
+    "city": "Lisbon",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [2.2, 41.4667]
+      "coordinates": [38.7223, -9.142685]
     }
   },
   {
     "id": 1724800602,
-    "city": "Benetúser",
+    "city": "Munich",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-0.3961, 39.425]
+      "coordinates": [48.1351, 11.582]
     }
   },
   {
     "id": 1724839704,
-    "city": "Puntales",
+    "city": "Dublin",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-6.2689, 36.5075]
+      "coordinates": [53.3498, -6.266155]
     }
   },
   {
     "id": 1724436657,
-    "city": "Barañáin",
+    "city": "Oslo",
     "timezone": "Europe/Madrid",
     "location": {
       "type": "Point",
-      "coordinates": [-1.6667, 42.8]
+      "coordinates": [59.911491, 10.757933]
     }
   }
 ]
