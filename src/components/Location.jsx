@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
+import WarningIcon from "../assets/icons/warning.png";
 
 Location.propTypes = {
   handleLatitude: PropTypes.func,
   handleLongitude: PropTypes.func,
-  latitude: PropTypes.number,
-  longitude: PropTypes.number,
+  latitude: PropTypes.string,
+  longitude: PropTypes.string,
+  isValid: PropTypes.bool,
 };
 
-export default function Location({ handleLatitude, handleLongitude, latitude, longitude }) {
+export default function Location({ handleLatitude, handleLongitude, latitude, longitude, isValid }) {
   return (
     <section>
       <h2 className='text-2xl font-bold text-header-text py-2'>Location</h2>
@@ -26,6 +28,12 @@ export default function Location({ handleLatitude, handleLongitude, latitude, lo
           <input className='bg-input-bg text-input-text font-medium p-3 border-l border-input-divider focus:outline-none' type='number' name='lon' id='lon' value={longitude} onChange={handleLongitude} />
         </div>
       </div>
+      {!isValid && (
+        <div className='bg-error-bg text-sm text-error-text p-2 rounded-lg my-1 flex items-center gap-1'>
+          <img className='w-4 min-w-4' src={WarningIcon} alt='Warning Icon' />
+          Please make sure the coordinates are in the correct format.
+        </div>
+      )}
     </section>
   );
 }

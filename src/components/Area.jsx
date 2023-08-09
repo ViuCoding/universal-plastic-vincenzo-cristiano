@@ -9,8 +9,8 @@ const customMarker = L.icon({
 });
 
 Area.propTypes = {
-  latitude: PropTypes.number,
-  longitude: PropTypes.number,
+  latitude: PropTypes.string,
+  longitude: PropTypes.string,
   range: PropTypes.number,
   handleRange: PropTypes.func,
   center: PropTypes.array,
