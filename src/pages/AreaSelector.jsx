@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import Area from "../components/Area";
-import Location from "../components/Location";
-
+import { Area, Location } from "../components/index";
 import { Link } from "react-router-dom";
 
 const latRegex = /^(-?((90(\.0{1,7})?)|(\d{1,2}(\.\d{1,7})?)))?$/;
@@ -10,57 +8,57 @@ const lonRegex = /^(?:-?180(?:\.0{1,7})?|(?:-?(?:1?[0-7]?[0-9]|180))(?:\.\d{1,7}
 export default function AreaSelector() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-  const [isValid, setIsValid] = useState(true);
   const [range, setRange] = useState(1000);
 
+  // Used to show error message if lat/long format is incorrect
+  const [isValid, setIsValid] = useState(true);
+
+  // Latitude input handler
   const handleLatitude = e => {
-    setIsValid(true);
     const latValue = e.target.value;
     if (latRegex.test(latValue)) {
-      setLatitude(latValue.substring(0, 11));
-    } else {
-      setIsValid(false);
-    }
-  };
-  const handleLongitude = e => {
-    setIsValid(true);
-    const lonValue = e.target.value;
-    if (lonRegex.test(lonValue)) {
-      setLongitude(lonValue.substring(0, 11));
+      setLatitude(latValue);
+      setIsValid(true);
     } else {
       setIsValid(false);
     }
   };
 
+  // Longitude input handler
+  const handleLongitude = e => {
+    const lonValue = e.target.value;
+    if (lonRegex.test(lonValue)) {
+      setLongitude(lonValue);
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  };
+
+  // Range slider handler
   const handleRange = e => {
     setRange(Number(e.target.value));
   };
 
+
+  // Geolocation services permissions
   const success = pos => {
     const location = pos.coords;
     const latString = location.latitude.toString();
     const lonString = location.longitude.toString();
-    setLatitude(latString.substring(0, 11));
-    setLongitude(lonString.substring(0, 11));
+    setLatitude(latString);
+    setLongitude(lonString);
   };
 
-  const errors = err => {
+  const error = err => {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   };
 
   useEffect(() => {
     if (navigator.geolocation) {
-      navigator.permissions.query({ name: "geolocation" }).then(function (result) {
-        if (result.state === "granted") {
-          navigator.geolocation.getCurrentPosition(success, errors);
-        } else if (result.state === "prompt") {
-          navigator.geolocation.getCurrentPosition(success, errors);
-        } else if (result.state === "denied") {
-          alert("Please enable the geolocation services!");
-        }
-      });
+      navigator.geolocation.getCurrentPosition(success, error);
     } else {
-      console.log("Geolocation is not supported by this browser.");
+      console.log("Geolocation not supported");
     }
   }, []);
 

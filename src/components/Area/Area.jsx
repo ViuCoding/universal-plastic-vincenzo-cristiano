@@ -1,7 +1,8 @@
 import { MapContainer, TileLayer, Marker, Circle, useMap } from "react-leaflet";
 import PropTypes from "prop-types";
 import L from "leaflet";
-import mapMarker from "../assets/icons/mapIcon.png";
+import mapMarker from "../../assets/icons/mapIcon.png";
+import "./Area.css";
 
 const customMarker = L.icon({
   iconUrl: mapMarker,

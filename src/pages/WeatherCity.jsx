@@ -1,24 +1,26 @@
 import locations from "../locations.json";
 import { useEffect, useState } from "react";
-import City from "../components/City";
-import WeatherCard from "../components/WeatherCard";
+import { City, WeatherCard, LoadingSpinner } from "../components/index";
 import axios from "axios";
-import LoadingSpinner from "../components/LoadingSpinner";
 import { Link } from "react-router-dom";
 
 const API_KEY = "37f2111fdeb0f75bcb28fbd30c3c518c";
 
 export default function WeatherCity() {
   const [city, setCity] = useState(locations[0]);
+
+  // Data fetching state control
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Select input handler
   const handleCity = e => {
     const userSelection = e.target.value;
     setCity(locations.find(city => city.city === userSelection));
   };
 
+  // API GET request
   useEffect(() => {
     async function fetchData() {
       try {
