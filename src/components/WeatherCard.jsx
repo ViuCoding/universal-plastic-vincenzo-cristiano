@@ -1,23 +1,42 @@
 import PropTypes from "prop-types";
 import PlaceHolder from "../assets/icons/mapIcon.png";
 import MapPin from "../assets/icons/mapPin.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 WeatherCard.propTypes = {
   weatherData: PropTypes.object,
 };
 
 export default function WeatherCard({ weatherData }) {
+  const [umidity, setUmidity] = useState("");
 
+  // format Time for sunset and sunrise hours
   const sunset = new Date(weatherData.sys.sunset * 1000);
   const sunsetHours = sunset.getHours().toString().padStart(2, "0");
   const sunsetMinutes = sunset.getMinutes().toString().padStart(2, "0");
-
   const sunrise = new Date(weatherData.sys.sunrise * 1000);
   const riseHours = sunrise.getHours().toString().padStart(2, "0");
   const riseMinutes = sunrise.getMinutes().toString().padStart(2, "0");
 
-  useEffect(() => {}, [weatherData]);
+  useEffect(() => {
+    if (weatherData) {
+      if (weatherData.main.humidity > 0 && weatherData.main.humidity <= 15) {
+        setUmidity("1/6");
+      } else if (weatherData.main.humidity > 15 && weatherData.main.humidity <= 40) {
+        setUmidity("2/6");
+      } else if (weatherData.main.humidity > 40 && weatherData.main.humidity <= 55) {
+        setUmidity("3/6");
+      } else if (weatherData.main.humidity > 55 && weatherData.main.humidity <= 70) {
+        setUmidity("4/6");
+      } else if (weatherData.main.humidity > 70 && weatherData.main.humidity <= 90) {
+        setUmidity("5/6");
+      } else if (weatherData.main.humidity > 90) {
+        setUmidity("6/6");
+      } else {
+        setUmidity("");
+      }
+    }
+  }, [weatherData]);
 
   return (
     <section className='p-4 border-2 rounded-lg border-slider'>
@@ -71,10 +90,10 @@ export default function WeatherCard({ weatherData }) {
       </div>
 
       <div className='flex justify-end mb-2'>
-        <p className='text-light-text'>70% umidity</p>
+        <p className='text-light-text'>{weatherData.main.humidity}% umidity</p>
       </div>
       <div className='w-full bg-input-divider h-1 rounded-lg'>
-        <div className={`w-${32} bg-slider h-1 rounded-lg`}></div>
+        <div className={`w-${umidity} bg-slider h-1 rounded-lg`}></div>
       </div>
     </section>
   );
