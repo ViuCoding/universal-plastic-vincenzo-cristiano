@@ -30,7 +30,7 @@ export default function WeatherCard({ weatherData }) {
         setUmidity("4/6");
       } else if (weatherData.main.humidity > 70 && weatherData.main.humidity <= 90) {
         setUmidity("5/6");
-      } else if (weatherData.main.humidity > 90) {
+      } else if (weatherData.main.humidity > 80) {
         setUmidity("6/6");
       } else {
         setUmidity("");
