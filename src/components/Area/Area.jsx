@@ -32,7 +32,7 @@ export default function Area({ range, handleRange, validLatitude, validLongitude
         <span className='edge-right'></span>
       </div>
 
-      <MapContainer className='leaflet-container' center={[validLatitude, validLongitude]} zoom={13} scrollWheelZoom={false} zoomControl={true}>
+      <MapContainer className='leaflet-container' center={[validLatitude, validLongitude]} zoom={13} scrollWheelZoom={false} zoomControl={false}>
         <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
         <Marker position={[validLatitude, validLongitude]} icon={customMarker}></Marker>
         <Circle
