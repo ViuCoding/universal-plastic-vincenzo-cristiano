@@ -7,6 +7,11 @@ nav {
 
 nav a {
   position: relative;
+  opacity: 0.46;
+}
+
+nav a.active{
+  opacity:1;
 }
 
 nav a.active::after {
