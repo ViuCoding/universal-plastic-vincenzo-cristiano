@@ -10,14 +10,14 @@ const customMarker = L.icon({
 });
 
 Area.propTypes = {
-  latitude: PropTypes.string,
-  longitude: PropTypes.string,
+  validLatitude: PropTypes.string,
+  validLongitude: PropTypes.string,
   range: PropTypes.number,
   handleRange: PropTypes.func,
   center: PropTypes.array,
 };
 
-export default function Area({ range, handleRange, latitude, longitude }) {
+export default function Area({ range, handleRange, validLatitude, validLongitude }) {
   const ChangeMapView = ({ center }) => {
     const map = useMap();
     map.setView(center, map.getZoom());
@@ -36,18 +36,18 @@ export default function Area({ range, handleRange, latitude, longitude }) {
         <span className='edge-right'></span>
       </div>
 
-      <MapContainer className='leaflet-container' center={[latitude, longitude]} zoom={13} scrollWheelZoom={false} zoomControl={true}>
+      <MapContainer className='leaflet-container' center={[validLatitude, validLongitude]} zoom={13} scrollWheelZoom={false} zoomControl={true}>
         <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-        <Marker position={[latitude, longitude]} icon={customMarker}></Marker>
+        <Marker position={[validLatitude, validLongitude]} icon={customMarker}></Marker>
         <Circle
-          center={[latitude, longitude]}
+          center={[validLatitude, validLongitude]}
           pathOptions={{
             color: "#42c3ee",
             weight: 1,
           }}
           radius={range}
         />
-        <ChangeMapView center={[latitude, longitude]} />
+        <ChangeMapView center={[validLatitude, validLongitude]} />
       </MapContainer>
     </section>
   );
