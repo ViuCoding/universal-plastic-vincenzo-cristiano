@@ -10,8 +10,13 @@ nav a {
   opacity: 0.46;
 }
 
-nav a.active{
-  opacity:1;
+nav a:hover {
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+}
+
+nav a.active {
+  opacity: 1;
 }
 
 nav a.active::after {
