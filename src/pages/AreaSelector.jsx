@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Area, Location, Navbar } from "../components/index";
+import { AnimatePage, Area, Location, Navbar } from "../components/index";
 
 export default function AreaSelector() {
   const [latitude, setLatitude] = useState("");
@@ -68,11 +68,13 @@ export default function AreaSelector() {
   }, []);
 
   return (
-    <div className='container mx-auto px-2' id='App'>
-      <h1 className='text-xl font-semibold text-center text-header-text py-2 '>Area selector</h1>
-      <Location handleLatitude={handleLatitude} handleLongitude={handleLongitude} latitude={latitude} longitude={longitude} isValid={isValid} />
-      <Area range={range} handleRange={handleRange} validLatitude={validLatitude} validLongitude={validLongitude} />
-      <Navbar />
-    </div>
+    <AnimatePage>
+      <div className='container mx-auto px-2' id='App'>
+        <h1 className='text-xl font-semibold text-center text-header-text py-2 '>Area selector</h1>
+        <Location handleLatitude={handleLatitude} handleLongitude={handleLongitude} latitude={latitude} longitude={longitude} isValid={isValid} />
+        <Area range={range} handleRange={handleRange} validLatitude={validLatitude} validLongitude={validLongitude} />
+        <Navbar />
+      </div>
+    </AnimatePage>
   );
 }
