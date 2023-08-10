@@ -5,5 +5,7 @@ import Location from "./Location";
 import WeatherCard from "./WeatherCard";
 import WeatherInfoBlock from "./WeatherInfoBlock";
 import Navbar from "./Navbar/Navbar";
+import ChangeMapView from "./ChangeMapView";
+import ChangeZoomLevel from "./ChangeZoomLevel";
 
-export { LoadingSpinner, Area, City, Location, WeatherCard, WeatherInfoBlock, Navbar };
+export { LoadingSpinner, Area, City, Location, WeatherCard, WeatherInfoBlock, Navbar, ChangeMapView, ChangeZoomLevel };

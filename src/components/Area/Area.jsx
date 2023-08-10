@@ -1,8 +1,10 @@
-import { MapContainer, TileLayer, Marker, Circle, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Circle } from "react-leaflet";
 import PropTypes from "prop-types";
 import L from "leaflet";
 import mapMarker from "../../assets/icons/mapIcon.png";
 import "./Area.css";
+import ChangeMapView from "../ChangeMapView";
+import ChangeZoomLevel from "../ChangeZoomLevel";
 
 const customMarker = L.icon({
   iconUrl: mapMarker,
@@ -18,12 +20,6 @@ Area.propTypes = {
 };
 
 export default function Area({ range, handleRange, validLatitude, validLongitude }) {
-  const ChangeMapView = ({ center }) => {
-    const map = useMap();
-    map.setView(center, map.getZoom());
-    return null;
-  };
-
   return (
     <section>
       <div className='flex items-center justify-between'>
@@ -37,7 +33,7 @@ export default function Area({ range, handleRange, validLatitude, validLongitude
       </div>
 
       <MapContainer className='leaflet-container' center={[validLatitude, validLongitude]} zoom={13} scrollWheelZoom={false} zoomControl={true}>
-        <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
+        <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
         <Marker position={[validLatitude, validLongitude]} icon={customMarker}></Marker>
         <Circle
           center={[validLatitude, validLongitude]}
@@ -48,6 +44,7 @@ export default function Area({ range, handleRange, validLatitude, validLongitude
           radius={range}
         />
         <ChangeMapView center={[validLatitude, validLongitude]} />
+        <ChangeZoomLevel range={range} />
       </MapContainer>
     </section>
   );
