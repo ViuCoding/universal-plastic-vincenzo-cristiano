@@ -9,7 +9,7 @@ ChangeZoomLevel.propTypes = {
 export default function ChangeZoomLevel({ range }) {
   const map = useMap();
   useEffect(() => {
-    const zoomLevel = Math.max(1, 14 - Math.log2(range / 500));
+    const zoomLevel = Math.ceil(Math.max(1, 14 - Math.log2(range / 500)));
     setTimeout(function () {
       map.setZoom(zoomLevel);
     }, 300);
