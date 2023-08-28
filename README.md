@@ -19,7 +19,7 @@
   </a>
 </div>
 
-<h1 align="center">Universal Plastic Tech Test</h1>
+<h1 align="center">Universal Plastic Tech Interview</h1>
 
   </p>
 </div>
@@ -29,7 +29,7 @@
 ## About The Project
 
   <p align="left">
-    This project is my entry for the tech test provided by Universal Plastic. <br /><br />
+    This project is my entry for the tech interview provided by Universal Plastic. <br /><br />
     <h3>Area Selector</h3>
     <p>The Area Selector screen allows users to input latitude and longitude and displays the corresponding place on a map.</p>
     <h3>Weather City</h3>
